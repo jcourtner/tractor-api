@@ -46,15 +46,6 @@ curl -X POST http://localhost:3000/ -H "Content-Type: text/plain" -d "D"
 
 Directions: `N` (North), `S` (South), `E` (East), `O` (Ouest/West)
 
-## Design Choices
-
-- **Express + TypeScript**: Lightweight, well-documented, and suited for a small API. No need for a heavier framework like NestJS for a single endpoint.
-- **Plain text body parsing**: The spec defines commands as text, so `express.text()` is used instead of JSON parsing.
-- **In-memory command queue**: Commands are queued in an array and processed sequentially with async/await. Each POST returns an immediate 200 response while the tractor executes commands in the background.
-- **Discriminated union for commands**: Each command type has a `type` field, enabling TypeScript to narrow types in the switch statement and catch errors at compile time.
-- **Separated parser**: Parsing and validation happen before queueing, so invalid commands are rejected immediately with a 400 response.
-
 ## What I'd Add With More Time
 
-- **Real-time tracking**: A Server-Sent Events (SSE) endpoint that streams tractor position updates to connected clients.
-- **Tests**: Unit tests for the parser and service logic using Jest.
+- **Real-time tracking**: A Server-Sent Events (SSE) endpoint that streams tractor position updates to connected clients. Could also use websockets for two way communication.
