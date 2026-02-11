@@ -21,7 +21,7 @@ export const parseTractorCommand = (input: string): Command => {
 		const inner = command.slice(2, -1);
 		return {
 			type: 'A',
-			value: Number(inner[0]),
+			value: Number(inner),
 		};
 	}
 

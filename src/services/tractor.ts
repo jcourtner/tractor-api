@@ -54,9 +54,6 @@ const executeCommand = async (curr: Command) => {
 					`Tractor position: (${tractorPosition.x}, ${tractorPosition.y}, ${tractorPosition.direction})`,
 				);
 			}
-			console.log(
-				`Tractor position: (${tractorPosition.x}, ${tractorPosition.y}, ${tractorPosition.direction})`,
-			);
 
 			break;
 		case 'G':
